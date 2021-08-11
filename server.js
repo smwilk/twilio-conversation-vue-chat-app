@@ -44,7 +44,7 @@ app.get("/auth/user/:user", (req, res) => {
 })
 
 // Run this once to create a sample user
-getAccessToken("Sample user")
+// getAccessToken("Sample user")
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
