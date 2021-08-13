@@ -30,18 +30,15 @@ export default {
 		}
 	},
 	mounted() {
-		this.getMessages()
+		this.activeConversation.getMessages()
+			.then((newMessages) => {
+				this.messages = [...this.messages, ...newMessages.items]
+			})
 		this.activeConversation.on("messageAdded", (message) => {
 			this.messages = [...this.messages, message]
 		})
 	},
 	methods: {
-		getMessages: function() {
-			this.activeConversation.getMessages()
-				.then((newMessages) => {
-					this.messages = [...this.messages, ...newMessages.items]
-				})
-		},
 		sendMessage: function() {
 			this.activeConversation.sendMessage(this.messageText)
 				.then(() => {

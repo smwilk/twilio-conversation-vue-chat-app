@@ -21,19 +21,19 @@ module.exports = {
     ],
     "rules": {
         "indent": [
-            2,
-            "tab"
+            "warn",
+            "tab",
         ],
         "quotes": [
-            2,
+            "warn",
             "double"
         ],
         "linebreak-style": [
-            2,
+            "warn",
             "unix"
         ],
         "semi": [
-            "error",
+            "warn",
             "never"
         ]
     },

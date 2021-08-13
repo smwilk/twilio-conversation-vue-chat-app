@@ -16,7 +16,7 @@ const twilioApiKey = process.env.TWILIO_API_KEY
 const twilioApiSecret = process.env.TWILIO_API_SECRET
 
 // Used specifically for creating Chat tokens
-const serviceSid = process.env.TWILIO_SERVICE_SDI
+const serviceSid = process.env.TWILIO_SERVICE_SID
 
 // Create a "grant" which enables a client to use Chat as a given user,
 // on a given device
@@ -34,17 +34,19 @@ function getAccessToken(user) {
 		{identity: user}
 	)
 	token.addGrant(chatGrant)
-	return token.toJwt()
+	const jwt = token.toJwt()
+	console.log(`Token for ${user}: ${jwt}`)
+	return jwt
 }
 
 app.get("/auth/user/:user", (req, res) => {
 	const jwt = getAccessToken(req.params.user)
-	console.log(`Identity for ${req.params.user}: ${jwt}`)
 	res.send({token: jwt})
 })
 
-// Run this once to create a sample user
-// getAccessToken("Sample user")
+// Run this once to create sample users that we can add to our conversation
+// getAccessToken("User1")
+// getAccessToken("User2")
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
