@@ -32,8 +32,8 @@ Save the file.
 3. Open the `server.js` file and uncomment these 2 lines and save the file.
    
 ```javascript
-// getAccessToken("User1")
-// getAccessToken("User2")
+getAccessToken("User1")
+getAccessToken("User2")
 ```
 
 1. Run the server by executing this command:
