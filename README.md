@@ -41,7 +41,7 @@ Save the file.
 ```
 node server.js
 ```
-You should see the access tokens for `User1` and `User2`, as well as `Example app listening at http://localhost:6000`.
+You should see the access tokens for `User1` and `User2`, as well as `Example app listening at http://localhost:5000`.
 
 5. Comment these 2 lines again and save the file.
 
