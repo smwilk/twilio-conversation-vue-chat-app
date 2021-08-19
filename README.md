@@ -2,6 +2,9 @@
 
 This is a basic demo chat app made with [Twilio Conversations API](https://www.twilio.com/conversations-api) and [Vue.js](https://vuejs.org/).
 
+:warning: **Disclaimer**
+This is repository is for reference only and is not directly supported by Twilio Inc. Please do not contact them for support as they will not be able to help you with it. Feature requests and pull requests may not be responded to.
+
 ## Start the app
 
 1. Install the dependencies by executing this command:
@@ -18,7 +21,7 @@ TWILIO_API_KEY=XXXXX
 TWILIO_API_SECRET=XXXXX
 TWILIO_SERVICE_SID=XXXXX
 ```
-`XXXXX` indicates credentials you'll need for this app. The table below summarizes each item and shows where you can find the credentials. Replace `XXXXX` with your own credentials.
+`XXXXX` indicates credentials you'll need for this app. The table below summarizes each item and shows where you can find the credentials. Replace `XXXXX` with your own credentials and save the file.
 
 | Credential | Description | Steps to obtain the credential |
 |---|---|---|
@@ -27,8 +30,6 @@ TWILIO_SERVICE_SID=XXXXX
 | TWILIO_API_SECRET | API Key secret. API Key secret is a secret that is attached to an API key. It is used to sign access tokens. | The API Key secret is **SECRET** shown when you create an API Key.  |
 | TWILIO_SERVICE_SID | Service SID. Service SID is a combination of numbers and alphabets that uniquely identifies a [Service](https://www.twilio.com/docs/chat/rest/service-resource). | Access [Conversations](https://www.twilio.com/console/conversations) in the Twilio Console. Click on **Manage** > **Services** > **Create a new service**. When a new screen appears, enter enter a recognizable service name such as "vue-conversations". The Service SID is **Service SID** on the screen. |
 
-Save the file.
-
 3. Open the `server.js` file and uncomment these 2 lines and save the file.
    
 ```javascript
@@ -36,7 +37,7 @@ getAccessToken("User1")
 getAccessToken("User2")
 ```
 
-1. Run the server by executing this command:
+4. Run the server by executing this command:
 
 ```
 node server.js
