@@ -44,10 +44,6 @@ app.get("/auth/user/:user", (req, res) => {
 	res.send({token: jwt})
 })
 
-// Run this once to create sample users that we can add to our conversation
-// getAccessToken("User1")
-// getAccessToken("User2")
-
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
 })

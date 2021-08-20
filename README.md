@@ -7,13 +7,25 @@ This is repository is for reference only and is not directly supported by Twilio
 
 ## Start the app
 
+1. Clone this repository and move into the project folder by executing this command:
+
+```
+cd twilio-conversation-vue-chat-app
+```
+
 1. Install the dependencies by executing this command:
 
 ```
 npm install
 ```
 
-2. Create a `.env` file and add these environment variables:
+1. Create a `.env` file by executing this command:
+
+```
+touch .env
+```
+
+1. Add these environment variables to the `.env` file:
 
 ```
 TWILIO_ACCOUNT_SID=XXXXX
@@ -30,27 +42,27 @@ TWILIO_SERVICE_SID=XXXXX
 | TWILIO_API_SECRET | API Key secret. API Key secret is a secret that is attached to an API key. It is used to sign access tokens. | The API Key secret is **SECRET** shown when you create an API Key.  |
 | TWILIO_SERVICE_SID | Service SID. Service SID is a combination of numbers and alphabets that uniquely identifies a [Service](https://www.twilio.com/docs/chat/rest/service-resource). | Access [Conversations](https://www.twilio.com/console/conversations) in the Twilio Console. Click on **Manage** > **Services** > **Create a new service**. When a new screen appears, enter enter a recognizable service name such as "vue-conversations". The Service SID is **Service SID** on the screen. |
 
-3. Open the `server.js` file and uncomment these 2 lines and save the file.
+1. Open the `server.js` file and uncomment these 2 lines and save the file.
    
 ```javascript
 getAccessToken("User1")
 getAccessToken("User2")
 ```
 
-4. Run the server by executing this command:
+1. Run the server by executing this command:
 
 ```
 node server.js
 ```
 You should see the access tokens for `User1` and `User2`, as well as `Example app listening at http://localhost:5000`.
 
-5. Comment these 2 lines again and save the file.
+1. Comment these 2 lines again and save the file.
 
 ```javascript
 // getAccessToken("User1")
 // getAccessToken("User2")
 ```
-6. Run the app by executing this command:
+1. Open a new tab or window in your terminal and run the app by executing this command:
 
 ```
 npm run serve

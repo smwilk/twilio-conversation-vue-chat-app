@@ -6,11 +6,9 @@
       <input @keyup.enter="registerName" v-model="name" placeholder="Enter your name">
       <button @click="registerName">Register name</button>
     </div>
-    <div v-if="nameRegistered && !activeConversation">
-      <input @keyup.enter="createConversation" v-model="chatName" placeholder="Enter your chat name">
+    <div v-if="nameRegistered && !activeConversation && isConnected">
       <button @click="createConversation">Join chat</button>
     </div>
-    <h2>{{ activeConversation?.uniqueName }}</h2>
     <Conversation v-if="activeConversation" :active-conversation="activeConversation" :name="name" />
   </div>
 </template>
@@ -26,9 +24,9 @@ export default {
 		return {
 			statusString: "",
 			activeConversation: null,
-			chatName: "",
 			name: "",
-			nameRegistered: false
+			nameRegistered: false,
+			isConnected: false
 		}
 	},
 	methods: {
@@ -36,11 +34,13 @@ export default {
 			window.conversationsClient = ConversationsClient
 			const token = await this.getToken(this.name)
 			this.conversationsClient = await ConversationsClient.create(token)
+			this.conversationsClient.getSubscribedUsers()
 			this.statusString = "Connecting to Twilio…"
 			this.conversationsClient.on("connectionStateChanged", (state) => {
 				switch (state) {
 				case "connected":
 					this.statusString = "You are connected."
+					this.isConnected = true
 					break
 				case "disconnecting":
 					this.statusString = "Disconnecting from Twilio…"
@@ -60,19 +60,25 @@ export default {
 			return responseJson.token
 		},
 		registerName: async function() {
-			await this.initConversationsClient()
 			this.nameRegistered = true
+			await this.initConversationsClient()
 		},
 		createConversation: async function() {
 			try {
-				const newConversation = await this.conversationsClient.createConversation({uniqueName: this.chatName})
+				await this.conversationsClient.getUser("User1")
+				await this.conversationsClient.getUser("User2")
+			} catch {
+				window.alert("Waiting for User1 and User2 client sessions")
+				return
+			}
+			try {
+				const newConversation = await this.conversationsClient.createConversation({uniqueName: "chat"})
 				const joinedConversation = await newConversation.join().catch(err => console.log(err))
-				await joinedConversation.add("User1").catch(err => console.log(err))
-				await joinedConversation.add("User2").catch(err => console.log(err))
-
+				await joinedConversation.add("User1").catch(err => console.log("error: ", err))
+				await joinedConversation.add("User2").catch(err => console.log("error: ", err))
 				this.activeConversation = joinedConversation
-			} catch (err) {
-				this.activeConversation = await (this.conversationsClient.getConversationByUniqueName(this.chatName))
+			} catch {
+				this.activeConversation = await (this.conversationsClient.getConversationByUniqueName("chat"))
 			}
 		}
 	}
