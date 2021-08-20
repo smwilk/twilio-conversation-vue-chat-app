@@ -13,19 +13,19 @@ This is repository is for reference only and is not directly supported by Twilio
 cd twilio-conversation-vue-chat-app
 ```
 
-1. Install the dependencies by executing this command:
+2. Install the dependencies by executing this command:
 
 ```
 npm install
 ```
 
-1. Create a `.env` file by executing this command:
+3. Create a `.env` file by executing this command:
 
 ```
 touch .env
 ```
 
-1. Add these environment variables to the `.env` file:
+4. Add these environment variables to the `.env` file:
 
 ```
 TWILIO_ACCOUNT_SID=XXXXX
@@ -42,14 +42,14 @@ TWILIO_SERVICE_SID=XXXXX
 | TWILIO_API_SECRET | API Key secret. API Key secret is a secret that is attached to an API key. It is used to sign access tokens. | The API Key secret is **SECRET** shown when you create an API Key.  |
 | TWILIO_SERVICE_SID | Service SID. Service SID is a combination of numbers and alphabets that uniquely identifies a [Service](https://www.twilio.com/docs/chat/rest/service-resource). | Access [Conversations](https://www.twilio.com/console/conversations) in the Twilio Console. Click on **Manage** > **Services** > **Create a new service**. When a new screen appears, enter enter a recognizable service name such as "vue-conversations". The Service SID is **Service SID** on the screen. |
 
-1. Run the server by executing this command:
+5. Run the server by executing this command:
 
 ```
 node server.js
 ```
 You should see `Example app listening at http://localhost:5000`.
 
-1. Open a new tab or window in your terminal and run the app by executing this command:
+6. Open a new tab or window in your terminal and run the app by executing this command:
 
 ```
 npm run serve
