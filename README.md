@@ -42,26 +42,13 @@ TWILIO_SERVICE_SID=XXXXX
 | TWILIO_API_SECRET | API Key secret. API Key secret is a secret that is attached to an API key. It is used to sign access tokens. | The API Key secret is **SECRET** shown when you create an API Key.  |
 | TWILIO_SERVICE_SID | Service SID. Service SID is a combination of numbers and alphabets that uniquely identifies a [Service](https://www.twilio.com/docs/chat/rest/service-resource). | Access [Conversations](https://www.twilio.com/console/conversations) in the Twilio Console. Click on **Manage** > **Services** > **Create a new service**. When a new screen appears, enter enter a recognizable service name such as "vue-conversations". The Service SID is **Service SID** on the screen. |
 
-1. Open the `server.js` file and uncomment these 2 lines and save the file.
-   
-```javascript
-getAccessToken("User1")
-getAccessToken("User2")
-```
-
 1. Run the server by executing this command:
 
 ```
 node server.js
 ```
-You should see the access tokens for `User1` and `User2`, as well as `Example app listening at http://localhost:5000`.
+You should see `Example app listening at http://localhost:5000`.
 
-1. Comment these 2 lines again and save the file.
-
-```javascript
-// getAccessToken("User1")
-// getAccessToken("User2")
-```
 1. Open a new tab or window in your terminal and run the app by executing this command:
 
 ```
