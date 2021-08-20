@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 import {Client as ConversationsClient} from "@twilio/conversations"
 import Conversation from "./Conversation"
 
@@ -34,7 +33,6 @@ export default {
 			window.conversationsClient = ConversationsClient
 			const token = await this.getToken(this.name)
 			this.conversationsClient = await ConversationsClient.create(token)
-			this.conversationsClient.getSubscribedUsers()
 			this.statusString = "Connecting to Twilio…"
 			this.conversationsClient.on("connectionStateChanged", (state) => {
 				switch (state) {
@@ -64,13 +62,16 @@ export default {
 			await this.initConversationsClient()
 		},
 		createConversation: async function() {
+			// Ensure User1 and User2 have an open client session
 			try {
 				await this.conversationsClient.getUser("User1")
 				await this.conversationsClient.getUser("User2")
 			} catch {
-				window.alert("Waiting for User1 and User2 client sessions")
+				console.error("Waiting for User1 and User2 client sessions")
 				return
 			}
+			// Try to create a new conversation and add User1 and User2
+			// If it already exists, join instead
 			try {
 				const newConversation = await this.conversationsClient.createConversation({uniqueName: "chat"})
 				const joinedConversation = await newConversation.join().catch(err => console.log(err))
