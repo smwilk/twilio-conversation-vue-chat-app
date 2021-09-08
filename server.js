@@ -12,11 +12,11 @@ const ChatGrant = AccessToken.ChatGrant
 
 // Used when generating any kind of tokens
 const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID
-const twilioApiKey = process.env.TWILIO_API_KEY
-const twilioApiSecret = process.env.TWILIO_API_SECRET
+const twilioApiKey = process.env.TWILIO_API_KEY_SID
+const twilioApiSecret = process.env.TWILIO_API_KEY_SECRET
 
 // Used specifically for creating Chat tokens
-const serviceSid = process.env.TWILIO_SERVICE_SID
+const serviceSid = process.env.TWILIO_CONVERSATIONS_SERVICE_SID
 
 // Create a "grant" which enables a client to use Chat as a given user,
 // on a given device

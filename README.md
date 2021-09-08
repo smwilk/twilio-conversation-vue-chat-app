@@ -29,9 +29,9 @@ touch .env
 
 ```
 TWILIO_ACCOUNT_SID=XXXXX
-TWILIO_API_KEY=XXXXX
-TWILIO_API_SECRET=XXXXX
-TWILIO_SERVICE_SID=XXXXX
+TWILIO_API_KEY_SID=XXXXX
+TWILIO_API_KEY_SECRET=XXXXX
+TWILIO_CONVERSATIONS_SERVICE_SID=XXXXX
 ```
 `XXXXX` indicates credentials you'll need for this app. The table below summarizes each item and shows where you can find the credentials. Replace `XXXXX` with your own credentials and save the file.
 
