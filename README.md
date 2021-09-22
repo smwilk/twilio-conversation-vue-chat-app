@@ -2,6 +2,8 @@
 
 This is a basic demo chat app made with [Twilio Conversations API](https://www.twilio.com/conversations-api) and [Vue.js](https://vuejs.org/).
 
+See the blog post [Creating a web chat app with Twilio Conversations and Vue.js](https://www.twilio.com/blog/twilio-conversations-vue-part-one) for detailed instructions to run the app.
+
 :warning: **Disclaimer** <br />
 This is repository is for reference only and is not directly supported by Twilio Inc. Please do not contact them for support as they will not be able to help you with it. Feature requests and pull requests may not be responded to.
 
